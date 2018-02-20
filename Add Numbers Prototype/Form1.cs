@@ -16,15 +16,33 @@ namespace Add_Numbers_Prototype
         {
             InitializeComponent();
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            if(numToAddTB.Text != "")
+            {
+                double numberToAdd = Convert.ToDouble(numToAddTB.Text);
+                listBox1.Items.Add(numberToAdd);
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            double result = 0.0;
+            while (i < listBox1.Items.Count)
+            {
+                result += Convert.ToDouble(listBox1.Items[i++]);
+            }
+            totalTB.Text = Convert.ToString(result);
+            historyLB.Items.Add(result);
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            historyLB.Items.Clear();
+            numToAddTB.Clear();
+            totalTB.Clear();
         }
     }
 }
